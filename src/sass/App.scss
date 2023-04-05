@@ -1,2 +1,8 @@
 @import '~scss-reset/_reset.scss';
 @import "~normalize-scss/sass/normalize";
+
+@import "./variables";
+
+@import "./components/top-section";
+@import "./components/gallery-section";
+@import "./components/about-me-section";
