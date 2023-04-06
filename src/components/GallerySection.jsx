@@ -33,7 +33,7 @@ function GallerySection() {
   }, [images]);
 
   return (
-    <div className="gallery-section" id="gallery-section" ref={sectionRef}>
+    <section className="gallery-section" id="gallery-section" ref={sectionRef}>
       <div className='gradient'></div>
       <Swiper className='gallery-section-slider'
         modules={[Controller, Pagination, Autoplay]}
@@ -72,7 +72,7 @@ function GallerySection() {
         {renderedImageSlides}
         <div className="swiper-pagination"></div>
       </Swiper>
-    </div>
+    </section>
   );
 }
 

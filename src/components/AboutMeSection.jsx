@@ -1,28 +1,25 @@
-import { useState } from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import { useMemo } from "react";
+import { useState, useRef, useMemo } from "react";
 import { Animated } from "react-animated-css";
-import { TypeAnimation } from "react-type-animation";
+import useEventOnScroll from "../hooks/useEventOnScroll";
 
 function TextBlock(props) {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEventOnScroll(ref, () => {
+    setIsVisible(true);
+  }, window.innerHeight);
+
   return (
-    <TypeAnimation
-      sequence={[
-        props.text,
-        () => {
-          props.onTextTypeEnd();
-        }
-      ]}
-      wrapper="p"
-      cursor={false}
-      speed={{type: "keyStrokeDelayInMs", value: 5}}
-    />
+    <Animated isVisible={isVisible} animationIn="fadeInLeft" animationOut="fadeOutLeft">
+      <p ref={ref}>{props.text}</p>
+    </Animated>
   );
 }
 
 function AboutMeSection() {
   const sectionRef = useRef(null);
+  const kissRef = useRef(null);
   const texts = useMemo(() => {
     return [
       "Решение о выборе специальности было предсказано с пеленок. Как и полагается дочери стоматологов в 4 поколении, все детство я проводила в стоматологических клиникаю.",
@@ -31,54 +28,18 @@ function AboutMeSection() {
       "Как человек активный, коммуникабельный, целеустремленный, я всегда рада обучаться чему-то новому, общаться с интересными людьми, беседовать с коллегами, помогать в работе, совершенствовать мануальные навыки."
     ];
   }, []);
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [typingStarted, setTypingStarted] = useState(false);
   const [isKissVisible, setIsKissVisible] = useState(false);
 
-  useEffect(() => {
-    function handleScroll() {
-      if (typingStarted) {
-        return;
-      }
-
-      const sectionTop = sectionRef.current.offsetTop
-      const userPosition = window.scrollY + (window.innerHeight / 2);
-
-      if (userPosition > sectionTop) {
-        setTypingStarted(true);
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    }
-  }, [typingStarted]);
+  useEventOnScroll(kissRef, () => {
+    setIsKissVisible(true);
+  }, window.innerHeight);
 
   const renderedTexts = useMemo(() => {
-    if (!typingStarted) {
-      return [];
-    }
-
-    if (currentTextIndex >= texts.length) {
-      setIsKissVisible(true)
-    }
-
-    let textBlocks = [];
-    const maxI = Math.min(texts.length, currentTextIndex + 1);
-
-    for (let i = 0; i < maxI; i++) {
-      textBlocks.push(
-        <TextBlock text={texts[i]} key={i} onTextTypeEnd={() => {setCurrentTextIndex(currentTextIndex + 1)}} />
-      );
-    }
-
-    return textBlocks;
-  }, [typingStarted, texts, currentTextIndex]);
+    return texts.map((text, index) => <TextBlock text={text} key={index} />)
+  }, [texts]);
 
   return (
-    <div className="about-me-section" id="about-me-section" ref={sectionRef}>
+    <section className="section about-me-section" id="about-me-section" ref={sectionRef}>
       <div className="shadow-top"></div>
       <div className="content wrapper">
         <h2 className="title">Обо мне</h2>
@@ -90,10 +51,10 @@ function AboutMeSection() {
         animationInDelay={700}
         isVisible={isKissVisible}
       >
-        <img src={require("../assets/about-section/kiss.png")} alt="kiss" />
+        <img src={require("../assets/about-section/kiss.png")} alt="kiss" ref={kissRef} />
       </Animated>
       <div className="shadow-bottom"></div>
-    </div>
+    </section>
   );
 }
 

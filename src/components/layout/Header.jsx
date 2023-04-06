@@ -50,6 +50,7 @@ function Header() {
           <a onClick={closeSideBar} className="menu-item" href="#">В начало</a>
           <a onClick={closeSideBar} className="menu-item" href="#about-me-section">Обо мне</a>
           <a onClick={closeSideBar} className="menu-item" href="#gallery-section">Фото</a>
+          <a onClick={closeSideBar} className="menu-item" href="#skills-section">Навыки</a>
         </div>
       </Menu>
     </header>

@@ -4,12 +4,12 @@
   left: 0;
   height: $header-height;
   width: 100%;
-  background-color: rgba($color: $color-secondenary, $alpha: 0);
+  background-color: rgba($color: $color-main, $alpha: 0);
   z-index: 100;
   transition: background-color 1s;
 
   &.scroll {
-    background-color: rgba($color: $color-secondenary, $alpha: 0.8);
+    background-color: rgba($color: $color-third, $alpha: 0.8);
 
     .bm-menu {
       background-color: rgba($color: $color-secondenary, $alpha: 0.95);
