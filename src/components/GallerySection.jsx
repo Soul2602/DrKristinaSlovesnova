@@ -1,13 +1,17 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { Pagination, Controller, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import useScrollToSection from '../hooks/useScrollToSection';
 
 function GallerySection() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [gallerySwiper, setGallerySwiper] = useState(null);
+  const sectionRef = useRef(null);
+
+  useScrollToSection(sectionRef);
 
   const images = useMemo(() => [
     require("../assets/gallery-section/2.jpeg"),
@@ -29,7 +33,7 @@ function GallerySection() {
   }, [images]);
 
   return (
-    <div className="gallery-section">
+    <div className="gallery-section" id="gallery-section" ref={sectionRef}>
       <div className='gradient'></div>
       <Swiper className='gallery-section-slider'
         modules={[Controller, Pagination, Autoplay]}

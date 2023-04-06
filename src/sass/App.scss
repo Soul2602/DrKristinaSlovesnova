@@ -2,6 +2,10 @@
 @import "~normalize-scss/sass/normalize";
 
 @import "./variables";
+@import "./fonts";
+@import "./layout";
+
+@import "./components/layout/header";
 
 @import "./components/top-section";
 @import "./components/gallery-section";

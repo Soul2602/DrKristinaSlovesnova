@@ -1,0 +1,239 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $header-height;
+  width: 100%;
+  background-color: rgba($color: $color-secondenary, $alpha: 0);
+  z-index: 100;
+  transition: background-color 1s;
+
+  &.scroll {
+    background-color: rgba($color: $color-secondenary, $alpha: 0.8);
+
+    .bm-menu {
+      background-color: rgba($color: $color-secondenary, $alpha: 0.95);
+    }
+  }
+
+  .logo {
+    height: $header-height;
+    position: absolute;
+    top: 0;
+    left: calc($header-height * -2);
+    transition: left 0.5s;
+    z-index: 10000;
+    cursor: pointer;
+
+    &.show {
+      left: 15px;
+    }
+  }
+
+  .links {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+
+    a {
+      display: inline-block;
+      font-weight: 300;
+      font-size: 34px;
+      width: fit-content;
+      color: black !important;
+      text-decoration: none;
+      margin-bottom: 10px;
+      border-bottom: black solid 2px;
+    }
+  }
+
+  .languages {
+    display: flex !important;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 0 50px;
+
+    .language {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      font-size: 30px;
+      font-weight: 400;
+      background-color: rgba($color: $color-secondenary, $alpha: 0);
+      transition: background-color 1s;
+
+      &.selected {
+        background-color: $color-secondenary;
+        color: #000000;
+      }
+    }
+  }
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  z-index: 10000 !important;
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  user-select: none;
+
+  label {
+    display:flex;
+    flex-direction:column;
+    width: 45px;
+    cursor:pointer;
+  }
+
+  span{
+    background: black;
+    border-radius:10px;
+    height: 2px;
+    margin: 7px 0;
+    transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  span:nth-of-type(1) {
+    width: 50%;
+  }
+
+  span:nth-of-type(2) {
+    width: 100%;
+  }
+
+
+  span:nth-of-type(3) {
+    width: 75%;
+  }
+
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+
+  input[type="checkbox"]:checked~span:nth-of-type(1) {
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(10px, 0px)
+  }
+
+
+  input[type="checkbox"]:checked~span:nth-of-type(2) {
+    transform-origin: top;
+    transform: rotatez(-45deg) translate(2px, 0px)
+  }
+
+
+  input[type="checkbox"]:checked~span:nth-of-type(3) {
+    transform-origin: bottom;
+    width: 50%;
+    transform: translate(22px, -10px) rotatez(45deg);
+
+  }
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 40px !important;
+  width: 40px !important;
+  right: 15px !important;
+  top: calc(($header-height - 40px) / 2) !important;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: black !important;
+
+  &.left {
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    transform: rotate(45deg);
+  }
+
+  &.right {
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    transform: rotate(-45deg);
+  }
+}
+
+.bm-cross-outer {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  width: 100% !important;
+  background: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgba($color: $color-secondenary, $alpha: 0.8);
+  padding: 0;
+  transition: background-color 1s;
+
+  .menu-item {
+    color: black;
+    text-align: center;
+  }
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #b8b7ad;
+  padding-top: $header-height + 20px;
+  width: 100%;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1200px) {
+  .app-header {
+    .logo {
+      &.show {
+        left: 45px;
+      }
+    }
+  }
+
+  .bm-burger-button {
+    right: 25px;
+  }
+
+  .bm-menu-wrap {
+    width: 300px !important;
+  }
+}

@@ -6,8 +6,8 @@ function Main() {
   return (
     <main className="app-main">
       <TopSection />
-      <GallerySection />
       <AboutMeSection />
+      <GallerySection />
     </main>
   )
 }
