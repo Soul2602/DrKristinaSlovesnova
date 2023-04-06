@@ -2,8 +2,8 @@
   position: relative;
   min-height: 100vh;
   background: $color-secondenary;
-  padding: 30px 0;
   padding-top: $header-height + 30px;
+  padding-bottom: $header-height + 100px;
 
   .shadow-top,
   .shadow-bottom {
@@ -25,12 +25,31 @@
   }
 
   .title {
-    font-family: 'Resagnicto';
+    font-family: 'Playfair Display';
     font-size: 28px;
+    width: 100%;
+    border-bottom: black 2px solid;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
 
-  .text {
-    font-family: 'Resagnicto';
+  p {
+    font-family: 'Playfair Display';
     font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .kiss {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+
+    &-outer {
+      position: absolute;
+      height: 150px;
+      width: 200px;
+      bottom: 50px;
+      right: 20px;
+    }
   }
 }

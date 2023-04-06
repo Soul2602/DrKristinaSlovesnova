@@ -40,6 +40,7 @@
       display: inline-block;
       font-weight: 300;
       font-size: 34px;
+      font-family: 'Playfair Display';
       width: fit-content;
       color: black !important;
       text-decoration: none;
@@ -190,7 +191,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgba($color: $color-secondenary, $alpha: 0.8);
+  background-color: rgba($color: $color-secondenary, $alpha: 0.9);
   padding: 0;
   transition: background-color 1s;
 
