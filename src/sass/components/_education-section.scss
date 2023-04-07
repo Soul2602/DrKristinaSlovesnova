@@ -1,0 +1,30 @@
+.education-section {
+  position: relative;
+  padding-bottom: $header-height;
+
+  .university {
+    &-logo {
+      width: 100%;
+      height: 100%;
+
+      &--outer {
+        display: block;
+        padding: 20px 10px;
+        max-width: 600px;
+      }
+    }
+
+    .education-list {
+      &--item {
+        font-family: 'Playfair Display';
+        font-size: 16px;
+        margin-bottom: 20px;
+
+        .period {
+          font-weight: bold;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}

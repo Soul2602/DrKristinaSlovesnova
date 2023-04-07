@@ -1,4 +1,5 @@
 import AboutMeSection from "../AboutMeSection";
+import EducationSection from "../EducationSection";
 import GallerySection from "../GallerySection";
 import SkillsSection from "../SkillsSection";
 import TopSection from "../TopSection";
@@ -10,6 +11,7 @@ function Main() {
       <AboutMeSection />
       <GallerySection />
       <SkillsSection />
+      <EducationSection />
     </main>
   )
 }

@@ -118,7 +118,7 @@ function SkillsSection() {
           {renderedSkills}
         </ul>
       </div>
-      <div className="shadow-bottom"></div>
+      {/* <div className="shadow-bottom"></div> */}
     </section>
   )
 }
