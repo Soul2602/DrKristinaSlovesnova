@@ -19,7 +19,7 @@ function TextBlock(props) {
 
 function AboutMeSection() {
   const sectionRef = useRef(null);
-  const kissRef = useRef(null);
+  // const kissRef = useRef(null);
   const texts = useMemo(() => {
     return [
       "Решение о выборе специальности было предсказано с пеленок. Как и полагается дочери стоматологов в 4 поколении, все детство я проводила в стоматологических клиникаю.",
@@ -28,11 +28,11 @@ function AboutMeSection() {
       "Как человек активный, коммуникабельный, целеустремленный, я всегда рада обучаться чему-то новому, общаться с интересными людьми, беседовать с коллегами, помогать в работе, совершенствовать мануальные навыки."
     ];
   }, []);
-  const [isKissVisible, setIsKissVisible] = useState(false);
+  // const [isKissVisible, setIsKissVisible] = useState(false);
 
-  useEventOnScroll(kissRef, () => {
-    setIsKissVisible(true);
-  }, window.innerHeight);
+  // useEventOnScroll(kissRef, () => {
+  //   setIsKissVisible(true);
+  // }, window.innerHeight);
 
   const renderedTexts = useMemo(() => {
     return texts.map((text, index) => <TextBlock text={text} key={index} />)
@@ -45,14 +45,14 @@ function AboutMeSection() {
         <h2 className="title">Обо мне</h2>
         {renderedTexts}
       </div>
-      <Animated className="kiss-outer"
+      {/* <Animated className="kiss-outer"
         animationIn="bounceIn"
         animationOut="bounceOut"
         animationInDelay={700}
         isVisible={isKissVisible}
       >
         <img src={require("../assets/about-section/kiss.png")} alt="kiss" ref={kissRef} />
-      </Animated>
+      </Animated> */}
       <div className="shadow-bottom"></div>
     </section>
   );

@@ -1,16 +1,20 @@
 import { useCallback, useMemo, useRef, useState } from "react";
-import useEventOnScroll from "../../hooks/useEventOnScroll";
-import { TypeAnimation } from "react-type-animation";
 
-function Item({ data }) {
+function DefaltItemBox({ data, collapsed }) {
+  return (
+    <div className="item-box">
+      <span className="item-title">{data.title}</span>
+      <div className="item-expand-btn--outer">
+        <div className={`item-expand-btn ${collapsed ? 'collapsed' : ''}`}></div>
+      </div>
+    </div>
+  );
+}
+
+function Item({ data, ItemBox }) {
   const itemRef = useRef(null);
   const sublistRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
-
-  useEventOnScroll(itemRef, () => {
-    setIsVisible(true);
-  }, window.innerHeight);
 
   const onExpandBtnClick = useCallback(() => {
     setCollapsed(!collapsed);
@@ -32,51 +36,30 @@ function Item({ data }) {
 
     return (
       <li className="item wrapper clickable" ref={itemRef} onClick={onExpandBtnClick}>
-        {isVisible ? <>
-          <div className="item-box">
-            <TypeAnimation className="item-title"
-              sequence={[
-                data.title
-              ]}
-              wrapper="span"
-              cursor={false}
-              speed={{ type: "keyStrokeDelayInMs", value: 15 }}
-            />
-            <div className="item-expand-btn--outer">
-              <div className={`item-expand-btn ${collapsed ? 'collapsed' : ''}`}></div>
-            </div>
-          </div>
-          <div className="item-sublist--outer" ref={sublistRef} style={{ height: sublistHeight }}>
-            <ul className="item-sublist">
-              {itemsSublist}
-            </ul>
-          </div>
-        </> : null}
+        {ItemBox ? <ItemBox data={data} collapsed={collapsed} /> : <DefaltItemBox data={data} collapsed={collapsed} />}
+        <div className="item-sublist--outer" ref={sublistRef} style={{ height: sublistHeight }}>
+          <ul className="item-sublist">
+            {itemsSublist}
+          </ul>
+        </div>
       </li>
     )
   } else if (typeof data === 'string') {
     return (
       <li className="item wrapper" ref={itemRef}>
-        {isVisible ? <TypeAnimation className="item-title"
-          sequence={[
-            data
-          ]}
-          wrapper="span"
-          cursor={false}
-          speed={{ type: "keyStrokeDelayInMs", value: 15 }}
-        /> : null}
+        <span className="item-title">{data}</span>
       </li>
     )
   }
   return null;
 }
 
-function ListBlock({items}) {
+function ListBlock({ items, ItemBox }) {
   const renderedItems = useMemo(() => {
     return items.map((skillData, index) => {
-      return <Item data={skillData} key={index} is />
+      return <Item data={skillData} key={index} ItemBox={ItemBox} />
     });
-  }, [items]);
+  }, [items, ItemBox]);
 
   return <ul className="list-items">{renderedItems}</ul>;
 }

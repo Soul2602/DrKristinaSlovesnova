@@ -1,0 +1,27 @@
+.experience-section {
+  position: relative;
+
+  .item-box {
+    .column {
+      display: flex;
+      flex-direction: column;
+
+      .period {
+        width: fit-content;
+        color: black;
+        font-weight: bold;
+        border-bottom: 1px solid black;
+        margin-bottom: 10px;
+      }
+
+      .place {
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .item-title {
+        padding-bottom: 15px;
+      }
+    }
+  }
+}
