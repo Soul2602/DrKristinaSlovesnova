@@ -36,7 +36,7 @@ function EducationSection() {
           </ul>
         </div>
       </div>
-      <div className="shadow-bottom"></div>
+      {/* <div className="shadow-bottom"></div> */}
     </section>
   );
 }
