@@ -1,17 +1,19 @@
 import { useCallback, useMemo, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Thumbs, EffectCreative } from "swiper";
+import { FreeMode, Thumbs, Pagination, EffectCreative, Navigation } from "swiper";
 
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/thumbs";
+// import "swiper/css/thumbs";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "swiper/css/effect-creative";
 
 function JobExamplesSection() {
   const images = useMemo(() => {
     let images = [];
 
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 9; i++) {
       images.push({
         before: require(`../assets/job-examples/before-${i}.jpeg`),
         after: require(`../assets/job-examples/after-${i}.jpeg`),
@@ -30,7 +32,7 @@ function JobExamplesSection() {
     return activeImages;
   });
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  // const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const renderedSlides = useMemo(() => {
     return images.map((item, index) => {
@@ -46,15 +48,15 @@ function JobExamplesSection() {
     });
   }, [images, showAfter]);
 
-  const renderedThumbs = useMemo(() => {
-    return images.map((item, index) => {
-      return (
-        <SwiperSlide key={index}>
-          <img className="thumb-img" src={item.after} alt="thumb" />
-        </SwiperSlide>
-      )
-    });
-  }, [images]);
+  // const renderedThumbs = useMemo(() => {
+  //   return images.map((item, index) => {
+  //     return (
+  //       <SwiperSlide key={index}>
+  //         <img className="thumb-img" src={item.after} alt="thumb" />
+  //       </SwiperSlide>
+  //     )
+  //   });
+  // }, [images]);
 
   const setCurrentShowAfter = useCallback((value) => {
     let newShowAfter = [...showAfter];
@@ -66,21 +68,16 @@ function JobExamplesSection() {
     <section className="section job-examples-section" id="job-examples-section">
       <div className="content">
         <h2 className="title wrapper">Мои работы</h2>
-        <Swiper
-          onSwiper={setThumbsSwiper}
-          spaceBetween={10}
-          slidesPerView={3}
-          freeMode={true}
-          watchSlidesProgress={true}
-          modules={[FreeMode, Thumbs]}
-          className="wrapper job-examples-section-slider--thumbs"
-        >
-          {renderedThumbs}
-        </Swiper>
         <Swiper className='wrapper job-examples-section-slider'
           onSlideChange={(swiper) => { setCurrentIndex(swiper.activeIndex) }}
-          thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-          modules={[FreeMode, Thumbs, EffectCreative]}
+          // thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+          modules={[FreeMode, Thumbs, EffectCreative, Pagination, Navigation]}
+          pagination={{
+            clickable: true
+          }}
+          navigation={{
+            clickable: true
+          }}
           grabCursor={true}
           effect={"creative"}
           creativeEffect={{
@@ -100,6 +97,17 @@ function JobExamplesSection() {
         <span className={`before clickable ${showAfter[currentIndex] ? "" : "selected"}`} onClick={() => { setCurrentShowAfter(false) }}>ДО</span>
         <span className={`before clickable ${showAfter[currentIndex] ? "selected" : ""}`} onClick={() => { setCurrentShowAfter(true) }}>ПОСЛЕ</span>
       </div>
+      {/* <Swiper
+          onSwiper={setThumbsSwiper}
+          spaceBetween={10}
+          slidesPerView={3}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Thumbs]}
+          className="wrapper job-examples-section-slider--thumbs"
+        >
+          {renderedThumbs}
+        </Swiper> */}
     </section>
   )
 }

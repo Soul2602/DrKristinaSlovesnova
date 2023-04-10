@@ -1,4 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from "react";
+import { Animated } from "react-animated-css";
+import useEventOnScroll from "../../hooks/useEventOnScroll";
 
 function DefaltItemBox({ data, collapsed }) {
   return (
@@ -15,6 +17,11 @@ function Item({ data, ItemBox }) {
   const itemRef = useRef(null);
   const sublistRef = useRef(null);
   const [collapsed, setCollapsed] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEventOnScroll(itemRef, () => {
+    setIsVisible(true);
+  }, window.innerHeight);
 
   const onExpandBtnClick = useCallback(() => {
     setCollapsed(!collapsed);
@@ -32,25 +39,29 @@ function Item({ data, ItemBox }) {
 
   if (typeof data === 'object') {
     const sublistElement = sublistRef && sublistRef.current && sublistRef.current.children[0];
-    const sublistHeight = (collapsed && sublistElement&&  sublistElement.offsetHeight) || 0;
+    const sublistHeight = (collapsed && sublistElement && sublistElement.offsetHeight) || 0;
 
     return (
       <li className="item wrapper clickable" ref={itemRef} onClick={onExpandBtnClick}>
-        {ItemBox ? <ItemBox data={data} collapsed={collapsed} /> : <DefaltItemBox data={data} collapsed={collapsed} />}
-        {data.list ?
-          <div className="item-sublist--outer" ref={sublistRef} style={{ height: sublistHeight }}>
-            <ul className="item-sublist">
-              {itemsSublist}
-            </ul>
-          </div>
-          : null
-        }
+        <Animated isVisible={isVisible} animationIn="fadeInLeft" animationInDuration={1200} animationOut="fadeOutLeft">
+          {ItemBox ? <ItemBox data={data} collapsed={collapsed} /> : <DefaltItemBox data={data} collapsed={collapsed} />}
+          {data.list ?
+            <div className="item-sublist--outer" ref={sublistRef} style={{ height: sublistHeight }}>
+              <ul className="item-sublist">
+                {itemsSublist}
+              </ul>
+            </div>
+            : null
+          }
+        </Animated>
       </li>
     )
   } else if (typeof data === 'string') {
     return (
       <li className="item wrapper" ref={itemRef}>
-        <span className="item-title">{data}</span>
+        <Animated isVisible={isVisible} animationIn="fadeInLeft" animationInDuration={1200} animationOut="fadeOutLeft">
+          <span className="item-title">{data}</span>
+        </Animated>
       </li>
     )
   }

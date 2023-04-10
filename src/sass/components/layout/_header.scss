@@ -9,7 +9,8 @@
   transition: background-color 1s;
 
   &.scroll {
-    background-color: rgba($color: $color-third, $alpha: 0.8);
+    // background-color: rgba($color: $color-third, $alpha: 0.8);
+    background-color: rgba($color: white, $alpha: 0.9);
 
     .bm-menu {
       background-color: rgba($color: $color-secondenary, $alpha: 0.95);
