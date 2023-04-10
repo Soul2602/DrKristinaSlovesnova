@@ -31,17 +31,20 @@ function Item({ data, ItemBox }) {
   }, [data]);
 
   if (typeof data === 'object') {
-    const sublistElement = sublistRef.current && sublistRef.current.children[0];
-    const sublistHeight = (collapsed && sublistElement.offsetHeight) || 0;
+    const sublistElement = sublistRef && sublistRef.current && sublistRef.current.children[0];
+    const sublistHeight = (collapsed && sublistElement&&  sublistElement.offsetHeight) || 0;
 
     return (
       <li className="item wrapper clickable" ref={itemRef} onClick={onExpandBtnClick}>
         {ItemBox ? <ItemBox data={data} collapsed={collapsed} /> : <DefaltItemBox data={data} collapsed={collapsed} />}
-        <div className="item-sublist--outer" ref={sublistRef} style={{ height: sublistHeight }}>
-          <ul className="item-sublist">
-            {itemsSublist}
-          </ul>
-        </div>
+        {data.list ?
+          <div className="item-sublist--outer" ref={sublistRef} style={{ height: sublistHeight }}>
+            <ul className="item-sublist">
+              {itemsSublist}
+            </ul>
+          </div>
+          : null
+        }
       </li>
     )
   } else if (typeof data === 'string') {

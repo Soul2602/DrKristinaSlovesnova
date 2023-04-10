@@ -1,0 +1,41 @@
+.completed-courses-section {
+  position: relative;
+
+  .item-box {
+    cursor: default;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .item-title {
+        width: 100%;
+        border-bottom: 1px solid black;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .item-link--outer {
+        color: black;
+        text-decoration: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .link-arrow {
+          width: 24px;
+          height: 24px;
+        }
+
+        .item-link {
+          width: fit-content;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
