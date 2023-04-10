@@ -16,7 +16,7 @@ function GallerySection() {
   const images = useMemo(() => [
     require("../assets/gallery-section/2.jpeg"),
     require("../assets/gallery-section/3.jpeg"),
-    require("../assets/gallery-section/6.jpeg"),
+    require("../assets/gallery-section/7.jpeg"),
     require("../assets/gallery-section/4.jpeg"),
     require("../assets/gallery-section/5.jpeg"),
     require("../assets/gallery-section/1.jpeg"),

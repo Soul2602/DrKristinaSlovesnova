@@ -52,9 +52,9 @@ function Header() {
           <a onClick={closeSideBar} className="menu-item" href="#gallery-section">Фото</a>
           <a onClick={closeSideBar} className="menu-item" href="#skills-section">Навыки</a>
           <a onClick={closeSideBar} className="menu-item" href="#education-section">Образование</a>
-          <a onClick={closeSideBar} className="menu-item" href="#experience-section">Опыт работы</a>
-          <a onClick={closeSideBar} className="menu-item" href="#job-examples-section">Примеры работ</a>
           <a onClick={closeSideBar} className="menu-item" href="#completed-courses-section">Пройденые курсы</a>
+          <a onClick={closeSideBar} className="menu-item" href="#experience-section">Опыт работы</a>
+          <a onClick={closeSideBar} className="menu-item" href="#job-examples-section">Мои работы</a>
           <a onClick={closeSideBar} className="menu-item" href="#contacts-section">Контакты</a>
         </div>
       </Menu>

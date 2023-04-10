@@ -16,9 +16,9 @@ function Main() {
       <GallerySection />
       <SkillsSection />
       <EducationSection />
+      <CompletedCoursesSection />
       <ExperienceSection />
       <JobExamplesSection />
-      <CompletedCoursesSection />
       <ContactsSection />
     </main>
   )

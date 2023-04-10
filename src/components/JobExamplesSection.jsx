@@ -65,7 +65,7 @@ function JobExamplesSection() {
   return (
     <section className="section job-examples-section" id="job-examples-section">
       <div className="content">
-        <h2 className="title wrapper">Примеры работ</h2>
+        <h2 className="title wrapper">Мои работы</h2>
         <Swiper
           onSwiper={setThumbsSwiper}
           spaceBetween={10}
