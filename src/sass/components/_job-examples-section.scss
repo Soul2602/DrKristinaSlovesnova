@@ -4,6 +4,7 @@
   &-slider {
     height: 50vh;
     max-height: 500px;
+    padding: 0;
 
     .swiper-slide {
       position: relative;
@@ -40,6 +41,8 @@
     &--thumbs {
       height: 80px;
       margin-bottom: 10px;
+      overflow: hidden;
+      padding: 0;
 
       .thumb-img {
         height: 100%;

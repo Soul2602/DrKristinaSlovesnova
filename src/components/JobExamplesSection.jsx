@@ -73,11 +73,11 @@ function JobExamplesSection() {
           freeMode={true}
           watchSlidesProgress={true}
           modules={[FreeMode, Thumbs]}
-          className="job-examples-section-slider--thumbs"
+          className="wrapper job-examples-section-slider--thumbs"
         >
           {renderedThumbs}
         </Swiper>
-        <Swiper className='job-examples-section-slider'
+        <Swiper className='wrapper job-examples-section-slider'
           onSlideChange={(swiper) => { setCurrentIndex(swiper.activeIndex) }}
           thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
           modules={[FreeMode, Thumbs, EffectCreative]}

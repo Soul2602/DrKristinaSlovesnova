@@ -1,7 +1,6 @@
 .about-me-section {
   position: relative;
   min-height: 100vh;
-  padding-bottom: $header-height + 120px;
 
   .title {
     font-family: 'Playfair Display';
@@ -35,5 +34,10 @@
       bottom: 50px;
       right: 20px;
     }
+  }
+
+  @media (min-width: 481px) {
+    min-height: auto;
+    padding-bottom: 100px;
   }
 }

@@ -9,6 +9,7 @@
   position: relative;
   min-height: 31.25rem;
   height: 100vh;
+  padding: 0;
   
   &-slider {
     width: 100%;
@@ -84,10 +85,32 @@
         opacity: 1;
       }
 
-      img {
+      .image {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      .bg-image {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    &-slider {
+      .swiper-slide {
+        .image {
+          position: relative;
+          object-fit: contain;
+        }
+
+        .bg-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0.2;
+        }
       }
     }
   }

@@ -26,14 +26,15 @@ function GallerySection() {
     return images.map((image, index) => {
       return (
         <SwiperSlide key={index}>
-          <img src={image} alt="gallery" />
+          <img className='bg-image' src={image} alt="gallery bg" />
+          <img className='image' src={image} alt="gallery" />
         </SwiperSlide>
       );
     });
   }, [images]);
 
   return (
-    <section className="gallery-section" id="gallery-section" ref={sectionRef}>
+    <section className="wrapper gallery-section" id="gallery-section" ref={sectionRef}>
       <div className='gradient'></div>
       <Swiper className='gallery-section-slider'
         modules={[Controller, Pagination, Autoplay]}
