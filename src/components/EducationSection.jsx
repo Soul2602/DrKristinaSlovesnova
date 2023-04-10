@@ -23,11 +23,11 @@ function EducationSection() {
   }, educationItems);
 
   return (
-    <section className="section alt education-section wrapper" id="education-section">
+    <section className="section alt education-section" id="education-section">
       {/* <div className="shadow-top"></div> */}
       <div className="content">
-        <h2 className="title">Образование</h2>
-        <div className="university">
+        <h2 className="title wrapper">Образование</h2>
+        <div className="university wrapper">
           <a className='university-logo--outer' href='https://nmuofficial.com/' target='_blank' rel="noreferrer">
             <LogoImage className='university-logo' alt="university logo" />
           </a>

@@ -41,9 +41,11 @@ function AboutMeSection() {
   return (
     <section className="section about-me-section" id="about-me-section" ref={sectionRef}>
       <div className="shadow-top"></div>
-      <div className="content wrapper">
-        <h2 className="title">Обо мне</h2>
-        {renderedTexts}
+      <div className="content">
+        <h2 className="title wrapper">Обо мне</h2>
+        <div className="text--outer wrapper">
+          {renderedTexts}
+        </div>
       </div>
       {/* <Animated className="kiss-outer"
         animationIn="bounceIn"

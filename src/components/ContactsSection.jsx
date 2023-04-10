@@ -17,11 +17,11 @@ function ContactsSection() {
   const InstagramLink = 'https://www.instagram.com/slovesnova/';
 
   return (
-    <section className="section contacts-section wrapper" id="contacts-section">
+    <section className="section contacts-section" id="contacts-section">
       {/* <div className="shadow-top"></div> */}
       <div className="content">
-        <h2 className="title">Контакты</h2>
-        <div className="contacts">
+        <h2 className="title wrapper">Контакты</h2>
+        <div className="contacts wrapper">
           <a href={`mailto:${email}`} className="contact">
             <EmailImage className='icon' />
             <span className='text'>{email}</span>

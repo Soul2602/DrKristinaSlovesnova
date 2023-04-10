@@ -1,0 +1,75 @@
+.job-examples-section {
+  position: relative;
+
+  &-slider {
+    height: 50vh;
+    max-height: 500px;
+
+    .swiper-slide {
+      position: relative;
+      background: black;
+
+      .before-img,
+      .after-img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+
+        &--bg {
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transform: unset;
+
+          &.show {
+            opacity: 0.2 !important;
+          }
+        }
+
+        &.show {
+          opacity: 1;
+        }
+      }
+    }
+
+    &--thumbs {
+      height: 80px;
+      margin-bottom: 10px;
+
+      .thumb-img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .switch--outer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 15px;
+
+    .before,
+    .after {
+      font-size: 22px;
+      line-height: 26px;
+      text-align: center;
+      user-select: none;
+      padding: 10px;
+      border-radius: 100px;
+      min-width: 100px;
+      background-color: rgba($color: $color-main, $alpha: 0.2);
+
+      &.selected {
+        background-color: rgba($color: black, $alpha: 1);
+        color: white;
+      }
+    }
+  }
+}

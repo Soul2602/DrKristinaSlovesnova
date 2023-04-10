@@ -3,6 +3,7 @@ import ContactsSection from "../ContactsSection";
 import EducationSection from "../EducationSection";
 import ExperienceSection from "../ExperienceSection";
 import GallerySection from "../GallerySection";
+import JobExamplesSection from "../JobExamplesSection";
 import SkillsSection from "../SkillsSection";
 import TopSection from "../TopSection";
 
@@ -15,6 +16,7 @@ function Main() {
       <SkillsSection />
       <EducationSection />
       <ExperienceSection />
+      <JobExamplesSection />
       <ContactsSection />
     </main>
   )
