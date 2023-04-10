@@ -18,7 +18,7 @@ function ContactsSection() {
 
   return (
     <section className="section contacts-section" id="contacts-section">
-      {/* <div className="shadow-top"></div> */}
+      <img className='bg-image' src={require("../assets/contacts-section/bg.jpeg")} alt="bg" />
       <div className="content">
         <h2 className="title wrapper">Контакты</h2>
         <div className="contacts wrapper">
@@ -44,7 +44,6 @@ function ContactsSection() {
           </a>
         </div>
       </div>
-      <div className="shadow-bottom"></div>
     </section>
   )
 }

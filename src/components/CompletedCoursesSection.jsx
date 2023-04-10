@@ -76,7 +76,7 @@ function CompletedCoursesSection() {
   ], []);
 
   return (
-    <section className="section completed-courses-section" id="completed-courses">
+    <section className="section completed-courses-section" id="completed-courses-section">
       <div className="content">
         <h2 className="title wrapper">Пройденые курсы</h2>
         <ListBlock items={courses} ItemBox={ItemBox} />

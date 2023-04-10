@@ -1,6 +1,21 @@
 .contacts-section {
   position: relative;
   padding-bottom: $header-height;
+  min-height: 100vh;
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+  }
+
+  .content {
+    position: relative;
+  }
 
   .title {
     margin-bottom: 45px;
